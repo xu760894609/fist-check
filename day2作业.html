@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul li{list-style:none ;}
+			*{margin: 0;padding: 0;}
+			body{
+				margin: 20px 100px;
+			}
+			#first_question{
+			   margin-bottom: 30px;
+			}
+			#first_question li:first-child{
+				font-size: 16px;
+				font-weight: bold;
+			}
+			.input{
+				float: left;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button>全选/全不选</button><br /><br />
+		<input class="input" type="checkbox" name="" id="" value=""  />
+			<div id="first_question">
+				<ul>
+					<li>1.输入宽高,求矩形面积函数。</li><br />
+					<li>
+						&nbsp;&nbsp;宽：<input type="text" name="text" id="import_1" value="" /> <br /><br />
+						&nbsp;&nbsp;高：<input type="text" name="text" id="import_2" value="" /> <br /><br />
+						
+						&nbsp;答案：<input type="text" name="text" id="text_four" value="" />
+									<button id="answer_four">查看答案</button>
+					</li>
+				</ul>
+			</div>
+		
+		<input class="input"  type="checkbox" name="" id="" value="" />
+			<div id="first_question">
+				<ul>
+					<li>2.输入半径,求圆的面积函数。</li><br />
+					<li>
+						&nbsp;输入半径：<input type="text" name="text" id="import_3" value="" /> <br /><br />
+	
+						&nbsp;&nbsp;&nbsp;答案：<input type="text" name="text" id="text_six" value="" />
+									<button id="answer_six">查看答案</button>
+					</li>
+				</ul>
+			</div>		
+		
+		<input class="input" type="checkbox" name="" id="" value="" />
+			<div id="first_question">
+				<ul>
+					<li>3.输入三个数,求最大数,最小数的函数。</li><br />
+					<li>
+						&nbsp;第一个数：<input type="text" name="text" id="import_4" value="" /> <br /><br />
+						&nbsp;第二个数：<input type="text" name="text" id="import_5" value="" /> <br /><br />
+						&nbsp;第二个数：<input type="text" name="text" id="import_6" value="" /> <br /><br />
+						
+						&nbsp;&nbsp;&nbsp;答案：<input type="text" name="text" id="text_five" value="" />
+									<button id="answer_five">查看答案</button>
+					</li>
+				</ul>
+			</div>
+		
+		<input  class="input" type="checkbox" name="" id="" value="" />
+		<div id="first_question">
+				<ul>
+					<li>4.输入一个数,求绝对值函数。</li><br />
+					<li>
+						&nbsp;输入一个数：<input type="text" name="text" id="import_9" value="" /> <br /><br />
+	
+						&nbsp;&nbsp;&nbsp;&nbsp;答案：<input type="text" name="text" id="text_one" value="" />
+									<button id="answer_one">查看答案</button>
+					</li>
+				</ul>
+			</div>
+		
+		<input class="input"   type="checkbox" name="" id="" value="" />
+			<div id="first_question">
+				<ul>
+					<li>5.九九乘法表（附加题）。</li><br />
+					<li>
+						
+						<button id="answer_eight">查看答案</button><br />
+						<div id="table">
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+		
+		<script type="text/javascript">
+			  window.onload = function(){
+			  	
+			  	//第一题
+				var otext4= document.getElementById("text_four");
+				var obtn_four = document.getElementById("answer_four");
+				var oa = document.getElementById("import_1");
+				var ob = document.getElementById("import_2");
+				
+				obtn_four.onclick = function(){
+					
+					var A=parseInt(oa.value);
+					var B = parseInt(ob.value);
+					 otext4.value = ("面积="+A*B);
+				}
+				
+				//第二题
+				var otext6= document.getElementById("text_six");
+				var obtn_six = document.getElementById("answer_six");
+				var A = document.getElementById("import_3");
+				
+				obtn_six.onclick = function(){
+						var i =Number( A.value);
+						var p = Math.PI;
+						if (i<=0) {
+							alert("别闹，这都不是个圆");
+						} else{
+							otext6.value = ( p* i * i);
+						}	
+				}	
+				
+				//第三题
+				var otext5= document.getElementById("text_five");
+				var obtn_five= document.getElementById("answer_five");
+				var oc = document.getElementById("import_4");
+				var od = document.getElementById("import_5");
+				var oe = document.getElementById("import_6");
+				
+				obtn_five.onclick = function(){
+					var A=oc.value;
+					var B = od.value;
+					var C = oe.value;
+					
+					if (parseInt(A)<parseInt(B)) {
+						X=A;
+						A=B;
+						B=X;
+						
+					} if(parseInt(A)<parseInt(C)){
+						X=A;
+						A=C;
+						C=X;
+						
+					}if(parseInt(B)<parseInt(C)){
+						X=B;
+						B=C;
+						C=X;		
+					}
+					otext5.value=(parseInt(A)+">"+parseInt(B)+">"+parseInt(C));
+					otext5.value=("最大数："+parseInt(A)+"；最小数："+parseInt(C));
+			}	
+			
+			//第四题
+				var otext1= document.getElementById("text_one");
+				var obtn_one = document.getElementById("answer_one");
+				var C = document.getElementById("import_9");
+				
+				obtn_one.onclick = function(){
+						var x=Number( C.value);
+						if (x>=0) {
+							otext1.value = x;
+						} else{
+							otext1.value = x-2*x;
+						}
+				}	
+				
+				//第五题
+				var obtn_eight =document.getElementById("answer_eight");
+				var otable = document.getElementById("table");
+				
+				obtn_eight.onclick = function(){
+					otable.style.cssText ="width: 900px; height: 220px; background: lavender;font-weight: bold;"
+					tables();
+				}
+				
+			//封装九九乘法表函数	
+			function tables(){
+				var otable = document.getElementById("table");
+				for (x=1;x<10;x++) {
+				for (y=1;y<=x;y++) {
+					otable.innerHTML+=(x+"*"+y+"="+(x*y)+"&nbsp&nbsp&nbsp");				
+				}
+				otable.innerHTML += "</br>"
+			}
+			}
+			
+			
+			//复选
+			var oBtn = document.getElementsByTagName("button")[0];
+			var aInput = document.getElementsByClassName("input");
+			var flag = true;	
+			oBtn.onclick = function(){
+
+				for(var i=0; i<aInput.length; i++){
+					
+					aInput[i].checked = flag;
+				}
+				flag = !flag;
+			}
+				
+			  }
+		</script>
+		
+	</body>
+</html>
